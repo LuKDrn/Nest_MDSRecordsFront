@@ -1,40 +1,26 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import './App.css';
-import ModalComponent from './components/modals/modal.component';
-import CreateTaskComponent from './components/tasks/createTask.component';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
-
-import Task, {TaskStatus} from './models/task.model';
-import ItemComponent from './components/items/item.component';
-
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import Navbar from './components/navbar/navbar.component';
+import Item from './components/items/item.component';
+import Albums from './components/albums/albums/albums.component';
+import Artists from './components/artists/artists/artists.component';
+import NotFound from './components/not-found/not-found.component';
 
 function App() {
-  const [tasks, setTasks] = useState<Task[]>([]);
-  const [modalVisible, setModalVisible] = useState(false);
-
-  function onClickAddBtn(title: string, description: string) : void {
-    const tmpTask = [...tasks];
-
-    tmpTask.push({
-      id: '',
-      title,
-      description,
-      status: TaskStatus.OPEN
-    });
-    setTasks(tmpTask);
-  }
-
-  function showModal() : void {
-    setModalVisible(true);
-  }
-
-  function hideModal(): void {
-    setModalVisible(false);
-  }
-
 
   return (
 <Fragment>
+  <div>
+    <Router>
+      <Navbar />
+      <Switch>
+        <Route path="/" exact component={ Item} />
+        <Route path="/albums" exact component={ Albums } />
+        <Route path="/artists" exact component={ Artists} />
+      </Switch>
+    </Router>
+  </div>
 </Fragment>
   );
 }
