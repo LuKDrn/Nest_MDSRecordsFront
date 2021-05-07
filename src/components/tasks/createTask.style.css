@@ -1,0 +1,9 @@
+.form {
+    margin: auto;
+}
+.createTaskContainer {
+ margin: auto;
+ padding: 2%;
+ width: 50%;
+ background-color: darkgray;
+}

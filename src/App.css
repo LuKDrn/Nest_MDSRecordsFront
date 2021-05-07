@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin: auto;
+  background-color: rgb(191, 16, 16);
+  padding: 1%;
+  width: min-content;
+}
